@@ -6,32 +6,13 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app" v-cloak>
-        <!-- この#appの内側にテンプレートを書き込んでいく -->
-        <input v-model.number="budget"> 円以下に絞り込む
-        <input v-model.number="limit"> 件を表示
-        <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示中</p>
-        <ul>
-            <!-- v-forでは最終結果、算出プロパティのlimitedを使用する -->
-            <li v-for="item in limited" v-bind:key="item.id">
-                {{ item.name }} {{ item.price }}円
-            </li>
-        </ul>
-        <button v-on:click="order=!order">切り替え</button>
-        <p>X: {{ halfPoint.x }}</p>
-        <p>Y: {{ halfPoint.y }}</p>
-        <input v-model.number="width"> {{ width }}
-        <input v-model.number="halfWidth"> {{ halfWidth }}
-        <!-- 算出プロパティ -->
-        <ol>
-            <li>{{ computedData }}</li>
-            <li>{{ computedData }}</li>
-        </ol>
-        <!-- メソッド -->
-        <ol>
-            <li>{{ methodsData() }}</li>
-            <li>{{ methodsData() }}</li>
-        </ol>
+    <div id="app">
+        <select v-model="current">
+            <option v-for="topic in topics" v-bind:value="topic.value">
+                {{ topic.name }}
+            </option>
+        </select>
+        <div v-for="item in list">{{ item.full_name }}</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
