@@ -1,11 +1,5 @@
-[v-cloak] {display: none; }
-@keyframes cloak-in {
-    0% { opacity: 0; }
-}
-#app {
-    animation: cloak-in 1s;
-}
-#app[v-cloak] {
-    opacity: 0;
-}
-.content { height: 1000px; }
+video {
+    height: 270px;
+    width: 480px}
+#video1 {float: left;
+padding-right: 20px}
