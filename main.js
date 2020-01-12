@@ -1,11 +1,9 @@
- var myComponent = {
-    template: '<p>MyComponent</p>'
-}
-new Vue({
-    el: '#app',
-    components: {
-        // <my-component>がルートでのみ使用可能になる
-        // ❶左辺はケバブケース以外でも可
-        'my-component': myComponent
-    }
+Vue.component('comp-child', {
+    // テンプレートでvalを使用
+    template: '<p>{{ val }}</p>',
+    // 受け取る属性名を指定
+    props: ['val']
+})
+var app = new Vue({
+    el: '#app'
 })
