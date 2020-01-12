@@ -2,27 +2,47 @@ var app = new Vue({
     // オプション
     el: '#app',
     data: {
-        price: 19800,
-        message: "Hello!",
-        foo: "aaa",
+        video1: false,
+        video2: false
     },
-    filters: {
-        localeNum: function(val) {
-            return val.toLocaleString()
+    directives: {
+        directive: {
+            bind: function() {
+                console.log('aaa')
+            }
         },
-        filter: function(message, foo, num) {
-            console.log(message, foo, num)
+        focus: {
+            // 紐付いている要素がDOMに挿入されるとき
+            inserted: function(el) {
+                el.focus() // 要素にフォーカスを当てる
+            }
         },
-        // 小数点以下を第2位に丸めるフィルタ
-        round: function(val) {
-            return Math.round(val * 100) / 100
-        },
-        // 度からラジアンに変換するフィルタ
-        radian: function(val) {
-            return val * Math.PI / 180
+        video(el, binding) {
+            if(binding.value !== binding.oldvalue) {
+            binding.value ? el.play() : el.pause()
+            }
         }
     }
 })
-Vue.filter('localeNum', function(val) {
-    return val.toLocaleString()
+Vue.directive('focus', {
+    inserted: function(el) {
+        el.focus()
+    }
+},
+'example', {
+    bind: function(el, binding) {
+        console.log('v-example bind')
+    },
+    inserted: function(el, binding) {
+        console.log('v-example inserted')
+    },
+    update: function(el, binding) {
+        console.log('v-example update')
+    },
+    componentUpdated: function(el, binding) {
+        console.log('v-example componentUpdated')
+    },
+    unbind: function(el, binding) {
+        console.log('v-example unbind')
+    }
 })
