@@ -1,12 +1,16 @@
 Vue.component('comp-child', {
     // テンプレートでvalを使用
-    template: '<p id="child" class="child">ChildComponent</p>',
+    template: '<li>{{ name }} HP.{{ hp }}</li>',
     // 受け取る属性名を指定
-    props: ['val']
+    props: ['name', 'hp']
 })
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'hello'
+        list: [
+            { id: 1, name: 'スライム', hp: 100 },
+            { id: 2, name: 'ゴブリン', hp: 200 },
+            { id: 3, name: 'ドラゴン', hp: 500 }
+        ]
     }
 })
