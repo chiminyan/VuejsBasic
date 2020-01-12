@@ -6,10 +6,12 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body>
-    <h1>コンポーネントの定義方法</h1>
+    <h1>コンポーネント間の通信</h1>
     <div id="app">
         <comp-child val="これは子A"></comp-child>
         <comp-child val="これは子B"></comp-child>
+        <comp-child v-bind:val="message" class="item"></comp-child>
+        <comp-child id="parent" class="parent"></comp-child>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
