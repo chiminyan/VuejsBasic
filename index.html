@@ -6,14 +6,20 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body>
-    <h1>コンポーネント間の通信</h1>
+    <h1>スロットを使ったコンポーネントのカスタマイズ</h1>
     <div id="app">
-        <ul>
-            <comp-child v-for="item in list"
-            v-bind:key="item.id" v-bind="item"
-            v-on:attack="handleAttack"></comp-child>
-        </ul>
-        <comp-child v-on:childs-event="parentsMethod($event, parentsData)"></comp-child>
+        <comp-child>実はここがスロットコンテンツ</comp-child>
+        </div>
+        <!--<section class="comp-child">
+            <header>
+                <slot name="header">デフォルトタイトル</slot>
+            </header>
+            <div class="content">
+                <slot>デフォルトコンテンツ</slot>
+            </div>
+            <slot name="footer">
+            </slot>
+        </section> -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
@@ -21,3 +27,9 @@
     <script src="main.js"></script>
 </body>
 </html>
+
+
+            <!--<header slot="header">
+                Hello Vue.js!
+            </header>
+            Vue.jsはJavaScriptのフレームワークです。-->
